@@ -1,0 +1,605 @@
+\documentclass[xcolor=svgnames]{beamer}
+
+\usepackage[utf8]    {inputenc}
+\usepackage[T1]      {fontenc}
+\usepackage[english] {babel}
+
+\usepackage{amsmath,amsfonts,graphicx}
+\usepackage{beamerleanprogress}
+
+\usepackage{pstricks}
+
+\definecolor{links}{HTML}{0A1EF5}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        LOADING TIKZ LIBRARIES
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\usetikzlibrary{
+backgrounds,
+mindmap,
+shapes.arrows,
+positioning,
+}
+
+\tikzset{
+    myarrow/.style={
+        draw,
+        fill=orange,
+        single arrow,
+        minimum height=7.5ex,
+        single arrow head extend=1ex
+    }
+}
+\newcommand{\arrowup}{%
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=90] {};}
+}
+\newcommand{\arrowdown}{%
+\tikz [baseline=2ex]{\node [myarrow,rotate=-90] {};}
+}
+
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{na} = [baseline=-.5ex]
+
+%\usepackage[colorlinks=false, urlcolor=blue, pdfborder={0 0 0}]{hyperref} 
+\usepackage{chngcntr}
+\usepackage{float}
+%\usepackage{titlepic}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+
+\usepackage{bibentry}
+
+\usepackage{wasysym, marvosym}
+\usepackage{tabularx}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% SMART TABLES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\heavyrulewidth}{0.1 em}
+\newcommand{\otoprule}{\midrule [\heavyrulewidth]}
+\usepackage[small,bf]{caption}
+%\captionsetup[table,figure]{labelfont=bf,font=small}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% To number captions of tables and figures
+\setbeamertemplate{caption}[numbered]
+
+%%% To erase the default symbol in bibliography
+\setbeamertemplate{bibliography item}[text]
+
+%%% To insert text inside boxes
+\setbeamercolor{postit}{bg=yellow!70!green}
+
+\newcommand{\1}{\'{\i}}
+
+\title
+  [\hspace{30em}  RiBiBui - Feb 2017 Lugano]
+  {RiBiBui \\ Sector Basic Research}
+  
+  
+%\author
+ %[JL. Guti\'errez--Villanueva, I. Fuente Merino, L. Quindos Lopez\hspace{13em}]
+  %{Jos\'e - Luis Guti\'errez--Villanueva  \and I. Fuente Merino \\  \and L. Quindos Lopez }
+
+%\date
+  %{December 2016}
+
+%\institute
+%  {RADON Group, Faculty of Medicine, University of Cantabria, Avda Cardenal Herrera Oria s/n, 39011 Santander (Spain)}
+
+%\titlegraphic{\includegraphics[scale=0.25]{laruc_logo}	}
+
+%----------------------------------------------------------------------------------------------------------------
+% Customization of itemize environment -------------------------------
+% The following code restores default beamer itemize for bullets 
+% It is possible to customize left margin in itemize environment using the option [leftmargin=3cm]
+%----------------------------------------------------------------------------------------------------------------
+
+
+\usepackage{enumitem}
+\setitemize{label=\usebeamerfont*{itemize item}%
+  \usebeamercolor[fg]{itemize item}
+  \usebeamertemplate{itemize item}}
+
+
+
+\begin{document}
+
+\maketitle
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%
+%	TABLE OF CONTENTS: OVERVIEW
+%
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+\section*{Overview}
+\begin{frame}{Structure}
+% For longer presentations hideallsubsections
+%\tableofcontents[hideallsubsections]
+\tableofcontents
+\end{frame}
+
+%\input{Introduction}
+%\input{norm}
+%\input{results}
+%\input{conclusions}
+
+\section{Participants}
+
+\begin{frame}
+
+\begin{table}[H]
+
+\centering
+	\scalebox{0.5}{
+	\begin{tabular}{llp{4cm}ll}
+		\toprule
+	\textbf{Surname}	& \textbf{Name} & \textbf{Institution} & \textbf{Country} & \textbf{email} \\
+				\otoprule
+Kunte  & Angelika & \"{O}sterreichische Agentur für Gesundheit
+und Ernährungssicherheit (AGES) & AU & angelika.kunte@ages.at \\ \midrule
+Freeman & Martin & PropertECO Ltd & UK & martin.freeman@properteco.co.uk \\ \midrule
+Meyer & Winfried & Bundesamt f\''{u}r Strahlenschutz & DE & wmeyer@bfs.de \\  \midrule
+Kemski & Jochen & Sachverst\''{a}ndiger f\''{u}r Radon (IHK Bonn) & DE & kemski@kemski-bonn.de \\ \midrule
+Vasiyev & Aleksey  & Institute of Industrial Ecology UB Russian Academy of Science & RU & alexey.vasiljev@gmail.com \\ \midrule
+Hoffmann & Bernd & Bundesamt f\''{u}r Strahlenschutz & DE & bhoffmann@bfs.de \\ \midrule
+Hoffmann & Marcus & Centro competenza radon SUPSI & CH & marcus.hoffmann@supsi.ch \\ \midrule
+Guti\'errez--Villanueva & Jos\'e - Luis & University of Cantabria & ES & gutierrezjl@unican.es \\ \midrule
+Carpentieri & Carmela & Istituto Superiore di Sanit\`{a} & IT & carmela.carpentieri@iss.it \\  \midrule
+Fesenbeck & Ingo & KiT & DE & ingo.fesenbeck@kit.edu \\ \midrule
+Nilsson & Per & Independia International AB & SE & per.nilsson@independia.se \\ \midrule
+Fenton & David & EPA Ireland & IRL & D.Fenton@epa.ie \\ \midrule
+Boox & Connie & Bjerking AB & SE & Connie.Boox@bjerking.se \\ \midrule
+Andersson & Mimmi & Bjerking AB & SE & mimmi.andersson@bjerking.se \\ \bottomrule
+	\end{tabular}
+}
+	\end{table}
+
+\end{frame}
+
+
+\section[Classification]{Classification of building types and building use}
+
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{Description}
+
+Essential for the development of a standard protocol for radon measurements is a classification of building types and, maybe with a lower weight (to be investigated), the building usage. A main point of this issue is the building geometry like number of floors and rooms, which refers to a wide range of parameters to be investigated by the \textit{Modelling} \& \textit{Simulation} section. The final result could be a set of standard protocols different for each building type.
+
+\end{frame}
+
+\subsection{Building types (construction based)}
+
+\begin{frame}{Building types (construction based)}
+\begin{itemize}
+
+\item Mall type (large halls, large commercial centers: IKEA) [nfloors < 3]
+\item Flat hall type (schools, kindergartens) [nfloors < 3]
+\item Manufacturing and production halls [nfloors < 3]
+\item Standard office  type [3 <= nfloors <= 9]
+\item Skyscraper office type [nfloors >= 10]
+\item Sport stadium type
+
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{Building types (usage based)}
+
+\begin{frame}{Building types (usage based) - source: Wikipedia}
+\begin{itemize}
+
+\item Agricultural buildings
+\item Commercial buildings 
+\item Public and government buildings 
+\item Educational buildings (kindergarten, schools, colleges, universities)
+\item Industrial buildings
+\item Military, police and fire department buildings
+\item Parking structures and storage
+\item Religious buildings (churches, mosques, temples)
+\item Transport buildings
+\item Power stations/plants
+\item Others
+
+\end{itemize}
+
+
+\end{frame}
+
+
+\section[Measurements]{Status of the past measurements}
+
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{Description}
+
+Research and identification of radon measurements in big buildings in the past is important to identify possible test cases. The classification and parametrization of possible candidates for experiments will be exercised later by the \textit{Experiment} section.
+
+\end{frame}
+
+\subsection{Ekaterinburg, Russia}
+
+\begin{frame}[allowframebreaks]{Example 1: Ekateriburg, Russia}
+
+\begin{itemize}
+\item Blocks of apartments
+\item 410 cases
+\item Detectors: living room and bed room
+\item Number of floors: 1 -- 26
+\item Year of construction: 1917 -- 2012
+\item Number of residents ($<$ 16 y): 1 -- 2 (some cases info not available)
+\item Number of residents ($>$ 16 y): 1 -- 6 (only few cases missing info)
+\item \# residence years (residents $>16$): 0.5 -- 60 y
+\item Wall material: bricks; concrete block; concrete panel; monolithic; slag block; wood
+\item Wall finish: plaster; paint; paint+wallpaper; wallpaper; paint+wallpaper; wallpaper+paint
+\item Floor material: concrete; concrete+floor; wood
+\item Floor covering: carpet; clay; lacquer varnish; linoleum; linoleum+paint; linoleum+wood; linoleum+wood; paint+linoleum; paint+linoleum+wood; paint+wood; paint+korb; wall-to-wall carpet; wood; wood+carpet; wood+linoleum
+\item Exposure time: 21 -- 123 d
+\item Annual Rn Conc: 1 -- 470 Bq m$^{-3}$
+\end{itemize}
+
+\end{frame}
+
+\subsection{Russian kindergartens}
+
+\begin{frame}[allowframebreaks]{Example 2: Russian kindergartens}
+
+\begin{itemize}
+\item 445 cases
+\item \# floors: 1--3
+\item Year of construction: 1881 -- 2000 (some cases correspond to reconstructed buildings)
+\item \# children: 18 -- 280
+\item \# adults: 5 -- 98
+\item Heating type: central or furnace
+\item Window type: uPVC; wood; wood+uPVC
+\item Indoor temperature: 19 -- 28 $^{\mathrm{o}}$C
+\item Wall material: brick; brick + concrete panel; brick + wood; concrete block; concrete panel; slag block; wood; 
+\item Wall finish: plaster
+\item Wall finish 2: paint; paint + wallpaper; paint + whiting; wallpaper; wallpaper + paint; wallpaper + white washing; white wash + paint; white washing; 
+\item Floor material: concrete; concrete + wood; wood
+\item Floor covering: board; fiberboard;  linoleum; linoleum + particle board; paint; paint + linoleum; parquet; particle board
+\item Exposure time in winter: 2 months
+\item Exposure time in summer: 2 months
+\item: Rn Conc (winter): 2 -- 494 Bq m$^{-3}$
+\item: Rn Conc (summer): 1 -- 754 Bq m$^{-3}$
+\item: Annual Rn Conc: 4 -- 624 Bq m$^{-3}$
+\end{itemize}
+
+\end{frame}
+
+\section[Protocols]{Status of the existing protocols}
+
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{Description}
+
+Are existing protocols relevant for this project? So far only two examples have been found (USA and Canada) which should be considered. The team will investigate on other protocols and possible integration.
+
+\end{frame}
+
+\begin{frame}{Existing information}
+
+\begin{table}
+\centering
+\begin{tabular}{ccc}
+
+\includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_Norway} & \includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_Finland} & \includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_Ireland} \\
+
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{cccc}
+
+\includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_Spain} & \includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_UK} & \includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_Switzerland} & \includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_Austria} \\
+
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{ccc}
+
+\includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_Canada} & \includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_Belgium}  & \includegraphics[height=2cm,width=2.5cm]{figures/Flag_of_France} \\
+
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}{Norway}
+
+\begin{exampleblock}{Norwegian protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] 100 and 200 Bq m$^{-3}$
+\item[Protocol] Yes
+\item[Link] \href{www.arbeidstilsynet.no/veiledning.html?tid=231659}{Norway 1}; \href{http://www.nrpa.no/filer/e70afdac3d.pdf}{Norway 2}
+\item[Language] Norwegian
+\item[Measuring period] at least 2 months (Oct -- Apr)
+\item[Correction] Depending on ventilation type
+\item[Rules] At least 3 MP, 1MP/150 m$^{2}$
+\item[Other protocols] No
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Finland}
+
+\begin{exampleblock}{Finish protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] 400 Bq m$^{-3}$
+\item[Protocol] Yes
+\item[Link] \href{http://www.finlex.fi/data/normit/23856-ST12-1e.pdf}{Finland 1}
+\item[Language] English
+\item[Measuring period] at least 2 months (Nov -- Apr)
+\item[Correction] No
+\item[Rules] Ground floor. Offices 1 MP/200 m$^{2}$. Bigger industry 1-2 MP/building
+\item[Other protocols] No
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Ireland}
+
+\begin{exampleblock}{Irish protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] 400 Bq m$^{-3}$
+\item[Protocol] Yes
+\item[Link] \href{http://www.epa.ie/pubs/reports/radiation/radonworkplacesbrochure.html}{Ireland 1}; \href{http://www.epa.ie/pubs/advice/radiation/guidancenotesplanningradonsurveyworkplace.html}{Ireland 2}; \href{http://www.epa.ie/pubs/advice/radiation/guidancenotesforemployersregardingundergroundworkplaces.html}{Ireland 3}; \href{http://www.epa.ie/pubs/advice/radiation/guidancenotesemployerifhighradonfoundaboveground.html}{Ireland 4}
+\item[Language] English
+\item[Measuring period] at least 3 months
+\item[Correction] No
+\item[Rules] Depending on size of building: 2 MP/workplace. From one MP/ office room,via 1 MP/ 200 m$^{2}$, 1 MP/ 400 m$^{2}$. At least 1 MP/500 m$^{2}$ for big buildings. See \href{http://www.epa.ie/pubs/advice/radiation/RPII_Guidelines_Radon_Survey_Workplace_2013.pdf}{Guidelines workplace}
+\item[Other protocols] \href{http://www.epa.ie/pubs/advice/radiation/radonadvicetolocalauthorities.html}{Social housing}; \href{http://www.epa.ie/pubs/advice/radiation/RPII_Advice_levels_long_stay_insti_05.pdf}{Long stay institutions}
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Spain}
+
+\begin{exampleblock}{Spanish protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] 600 Bq m$^{-3}$
+\item[Protocol] Yes
+\item[Link] \href{https://www.csn.es/documents/10182/896572/GS 11-04 Metodología para la evaluación de la exposición al radón en los lugares de trabajo}{Spain 1}
+\item[Language] Spanish
+\item[Measuring period] at least 3 months 
+\item[Correction] No
+\item[Rules] The two lowest floors, Similar as Ireland 1 MP/ 200 m$^{2}$ , 400 m$^{2}$ and per 500 m$^{2}$ depending on size.
+\item[Other protocols] No
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{UK}
+
+\begin{exampleblock}{British protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] 400 Bq m$^{-3}$ maximum 24h working time 
+\item[Protocol] Not
+\item[Link] Controversy: There is a \href{http://www.ukradon.org/information/workplace}{document} issued by PHE about radon in workplaces. PHE is not regulatory body. Regulatory body for radon in workplace is the Health \& Safety Executive (HSE). 	
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Switzerland}
+
+\begin{exampleblock}{Swiss protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] 3000 Bq m$^{-3}$
+\item[Protocol] Not
+\item[Link] N/A
+\item[Language] N/A
+\item[Measuring period] N/A 
+\item[Correction] N/A
+\item[Rules] N/A
+\item[Other protocols] N/A
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Austria}
+
+\begin{exampleblock}{Austrian protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] 400 Bq m$^{-3}$
+\item[Protocol] Not
+\item[Link] N/A
+\item[Language] N/A
+\item[Measuring period] N/A 
+\item[Correction] N/A
+\item[Rules] N/A
+\item[Other protocols] N/A
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Canada}
+
+\begin{exampleblock}{Canadian protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] Older rules 800 Bq m$^{-3}$ harmonize  200 Bq m$^{-3}$
+\item[Protocol] Yes
+\item[Link] \href{http://www.hc-sc.gc.ca/ewh-semt/alt_formats/hecs-sesc/pdf/pubs/radiation/radon_building-edifices/27-15-1468-RadonMeasurements_PublicBuildings-EN13.pdf}{Canada 1}
+\item[Language] English
+\item[Measuring period] Recommended three month but at least one month
+\item[Correction] No
+\item[Rules] Ground floor and cellar. At least 1 MP/room. For big rooms at least 1 MP/ 200 m$^{2}$.
+\item[Other protocols] No
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Belgium}
+
+\begin{exampleblock}{Belgian protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] 800 kBq h m$^{-3}$ y$^{-1}$
+\item[Protocol] Yes
+\item[Link] \href{http://fanc.fgov.be/GED/00000000/3800/3848.pdf}{Belgium 1}; \href{http://fanc.fgov.be/GED/00000000/3800/3847.pdf}{Belgium 2}; 
+\item[Language] Dutch and French
+\item[Measuring period] At least three months
+\item[Correction] No
+\item[Rules] 1 Mp / 200 m$^{2}$.
+\item[Other protocols] No
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{France}
+
+\begin{exampleblock}{French protocol}
+
+\begin{itemize}[font=\bfseries, leftmargin=3.5cm]
+\item[Limit] Decrease of Action Level from 400 to 300 Bq m$^{-3}$
+\item[Protocol] Yes
+\item[Link] \href{https://www.asn.fr/Informer/Actualites/3eme-plan-national-d-action-2016-2019-pour-la-gestion-du-risque-lie-au-radon}{France 1}; \href{https://www.asn.fr/Informer/Dossiers-pedagogiques/Le-radon/Guides-sur-la-gestion-du-risque-du-radon/Guide-pour-la-gestion-du-risque-lie-au-radon-a-destination-des-employeurs}{France 2}; \href{https://professionnels.asn.fr/Agrements-controles-et-mesures/Le-radon/Plans-nationaux-d-action-pour-la-gestion-du-risque-lie-au-radon/Plan-national-d-action-2016-2019-pour-la-gestion-du-risque-lie-au-radon}{France 3}
+\item[Language] Dutch and French
+\item[Measuring period] At least three months
+\item[Correction] No
+\item[Rules] 1 Mp / 200 m$^{2}$.
+\item[Other protocols] No
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+
+
+
+\section[Defined \ldots]{Finding defined building types (new and already measured)}
+
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{Description}
+
+A difficult task will be the suitable buildings types, respecting the classification defined in the previous topics, especially new ones. Using databases of various public entities is an essential benefit to accomplish this task. 
+
+\end{frame}
+
+\section[Next]{Next steps}
+
+\begin{frame}{Suggestions}
+
+\begin{itemize}
+\item Improvement on the definition of building types
+\item Data analysis of Russian experiences
+\item Existing protocols: organise information and try to to find out others
+\item Databases of public entities (building types), classification \ldots
+\end{itemize}
+
+\pause \begin{figure}
+\centering
+\includegraphics[scale=0.3]{figures/3310412245_7bc07bd215_o}
+\caption*{{\tiny MindTouch Brainstorm by \href{https://www.flickr.com/photos/roebot/3310412245/}{Aaron Fulkerson}, used under CC BY / No changes made from original}}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{Thank you all for your patience}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.07]{figures/18873951033_f56652709d_o.jpg}
+\caption*{{\tiny Lugano by \href{https://www.flickr.com/photos/patrick_nouhailler/18873951033/in/photolist-uKPW5R-vxHTFd-vvDDP7-xf8XCy-vqdX4g-va9uRp-vPx3hW-vKWWPN-xgrPiW-xV9t87-vawEFY-vq6ApL-vq6wTL-uRoAUF-adASLT-6M8EqV-vQ6X8N-vzeKDY-uQfu7e-uUYHo6-vcU1of-vJNLdQ-vxHRTL-uwDscL-ugW8jR-xT4AVh-ugoVBA-w1YeRM-vxHTQU-vzeJD1-vdgdG1-vPJ2Dq-7Aiwew-6McJPW-6McUGG-zbFTnX-KioiMu-x3k4jN-vDYzi2-xj9RtE-vzeJbh-y5qDeU-vcJzYm-uSwyei-vM7DEa-wdxHwC-xNLU35-xiLmKK-vKWVrC-vztmYZ}{Patrick Nouhailler}, used under CC BY / No changes made from original}}
+\end{figure}
+
+
+
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}
+
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{\includegraphics[scale=0.4]{figures/By_nc_sa_bw.png}}
+
+\end{figure}
+
+\end{frame}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+
+%
+%  \begin{exampleblock}{Some more block}
+%    Movies only seem to work in Adobe Reader\par
+%    Movie file is not embedded, it must be on the computer
+%  \end{exampleblock}
+%
+%  \begin{alertblock}{}
+%    Some text in here.
+%    \begin{itemize}
+%    \item Movies only seem to work in Adobe Reader
+%    \item Movie file is not embedded, it must be on the computer
+%    \end{itemize}
+%  \end{alertblock}
+%\end{frame}
+
+
+
+%\section
+%  {Conclusion}
+%
+%\begin{frame}
+%  {Credits}
+%
+%  \begin{itemize}
+%  \item Brought to you by Cédric Mauclair
+%  \item Please let me know about improvements!
+%  \item inspiration: \url{http://www.shawnlankton.com}... (in code)
+%  \end{itemize}
+%\end{frame}
+
+
+%\begin{frame}
+%  {Questions}
+%
+%  \nocite{lorem,ipsum}
+%  \bibliographystyle{plain}
+%  \bibliography{demo}
+%
+%\end{frame}
